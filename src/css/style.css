@@ -1,0 +1,100 @@
+@import "bootstrap-5.0.1-dist/css/bootstrap.min.css";
+
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust:100%
+}
+
+body {
+  margin:0
+}
+
+.container {
+  position: relative;
+}
+
+.chat {
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  max-height: 1000px;
+  overflow: auto;
+}
+
+.chat-messages {
+  position: relative;
+}
+
+.chat-messages::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: url("../img/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.date-el {
+  font-size: 0.7em;
+}
+
+.text-el {
+  background-color: rgba(105, 209, 255, 0.3);
+}
+
+.text-el-self {
+  background-color: rgba(253, 253, 255, 0.6);;
+}
+
+.input-wrapper {
+  width: 100%;
+  align-items: center;
+}
+
+.input-wrapper[contenteditable="true"]:empty:before {
+  content: attr(placeholder);
+  color: #a1a1a1;
+}
+
+.custom-file {
+  position: relative;
+  display: inline-block;
+  min-height: 38px;
+  outline: none!important;
+  overflow-y: auto;
+}
+
+.custom-file-input {
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  width: 100%;
+  opacity: 0;
+}
+
+.input-overlap {
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  width: 100%;
+}
+
+.preview-geo {
+  min-height: 200px;
+  position: relative;
+}
+
+.preview-file {
+  min-height: 100px;
+}
+
+.download-el {
+  font-size: 0.7rem;
+}
+
+

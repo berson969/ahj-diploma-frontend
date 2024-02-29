@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="css/bootstrap-5.0.1-dist/css/bootstrap.min.css">
+
+  <title>AHJ-Diploma</title>
+</head>
+<body>
+  <div class="container row col-8 mt-4 border border-primary rounded offset-2">
+    <div class="chat mt-4 border border-primary rounded p-0">
+      <div class="chat-messages  d-flex flex-column rounded"></div>
+    </div>
+    <form class="form form-control mb-4 p-0">
+
+      <div class="input-group  mt-1">
+          <div class="input-wrapper d-flex text-wrap form-control border-primary mt-1" contenteditable="true" placeholder="Введите сообщение"></div>
+      </div>
+
+      <div class="button-group d-flex justify-content-between mt-1">
+        <button id="geo" class="geoButton btn btn-primary me-2">Местоположение</button>
+        <div class="custom-file  flex-grow-1">
+          <input type="file" class="custom-file-input" multiple>
+<!--          accept="image/*, audio/*, video/*-->
+          <span class="input-overlap btn btn-primary">
+            Файлы
+          </span>
+        </div>
+        <button class="send  btn btn-primary ms-2" type="button" id="button-addon">Отправить</button>
+      </div>
+    </form>
+
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</body>
+</html>
