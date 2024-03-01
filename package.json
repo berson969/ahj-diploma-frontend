@@ -20,6 +20,7 @@
     "bootstrap-icons": "^1.11.3",
     "css-loader": "^6.10.0",
     "css-minimizer-webpack-plugin": "^6.0.0",
+    "cssnano": "^6.0.5",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jest": "^27.9.0",
@@ -28,7 +29,6 @@
     "html-loader": "^5.0.0",
     "html-webpack-plugin": "^5.6.0",
     "leaflet": "^1.9.4",
-    "mini-css-extract-plugin": "^2.8.0",
     "prettier": "^3.2.5",
     "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4",
@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "core-js": "^3.36.0",
-    "lazysizes": "^5.3.2"
+    "lazysizes": "^5.3.2",
+    "mini-css-extract-plugin": "^2.8.1"
   }
 }

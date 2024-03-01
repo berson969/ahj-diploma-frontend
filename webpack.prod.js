@@ -5,8 +5,17 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = merge(common, {
   mode: "production",
+  stats: {
+    children: true,
+  },
   optimization: {
-    minimizer: [new CssMinimizerPlugin()],
+    minimize: false,
+    minimizer: [new CssMinimizerPlugin({
+      minimizerOptions: {
+        preset: "default",
+      },
+    })
+    ],
   },
   plugins: [new MiniCssExtractPlugin()],
 });
