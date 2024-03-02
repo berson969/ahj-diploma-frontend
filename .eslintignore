@@ -4,7 +4,6 @@ docs/
 webpack.common.js
 webpack.dev.js
 webpack.prod.js
-src/css/bootstrap-5.0.1-dist
 src/css/style44.css
 src/index44.html
 node_modules/

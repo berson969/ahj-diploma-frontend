@@ -176,18 +176,15 @@ export default class RenderMessage {
       this.makeMapLayer(message)
     }
 
-    // setTimeout(() => {
-    //  requestAnimationFrame(() => {
-    //  for (let key in this.chatMessages) {
-    //    console.log(key + ": " + this.chatMessages[key]);
-    //  }
-    //    console.log(this.chatMessages)
-    // this.chatMessages.scrollTop = 1115;
-    //  const chat = this.chatMessages.parentElement;
+    // requestAnimationFrame(() => {
+    //   this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+    // });
 
     // chat.scrollTop = chat.scrollHeight;
     // console.log("Scroll", chat.scrollTop, chat.scrollHeight)
-    this.chatMessages.scrollTop = this.chatMessages.scrollHeight
+
+    this.chatMessages.scrollTop = this.chatMessages.clientHeight
+
     // console.log("Scroll", this.chatMessages.scrollTop, this.chatMessages.scrollHeight)
     // })
     // }, 0)

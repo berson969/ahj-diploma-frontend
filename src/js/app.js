@@ -1,8 +1,8 @@
 import { faker } from '@faker-js/faker'
 import RenderMessage from './renderMessage'
 
-// const baseUrl = 'ws://localhost:7072/ws';
-const baseUrl = 'wss:///ahj-diploma-server-4b9ecd1ed842.herokuapp.com'
+// const baseUrl = 'ws://localhost:7071/ws';
+const baseUrl = 'wss:///evening-escarpment-39779-41796c71ab35.herokuapp.com/'
 
 let userId = localStorage.getItem('userId')
 if (!userId) {
@@ -11,7 +11,7 @@ if (!userId) {
 }
 const messages = []
 
-const ws = new WebSocket(baseUrl)
+let ws = new WebSocket(baseUrl)
 
 const chatMessages = document.querySelector('.chat-messages')
 const messageText = document.querySelector('.input-wrapper')
@@ -115,26 +115,31 @@ geoButton.addEventListener('click', (e) => {
   sendGeoPositionHandler()
 })
 
+const reconnectWebSocket = () => {
+  setTimeout(() => (ws = new WebSocket(baseUrl)), 2000)
+}
+
 ws.addEventListener('open', () => {
   console.log('WebSocket открыт и готов к использованию.')
 })
 
 ws.addEventListener('close', () => {
   console.log('WebSocket закрыт.')
+  reconnectWebSocket()
 })
 
 ws.addEventListener('error', (e) => {
   console.log('Произошла ошибка в WebSocket:', e)
+  reconnectWebSocket()
 })
 
-ws.addEventListener('message', async (e) => {
+ws.addEventListener('message', (e) => {
   const data = JSON.parse(e.data)
 
   console.log('Message from message', data, Array.isArray(data))
 
   if (Array.isArray(data)) {
     messages.push(...data)
-    console.log('messages before sort', messages)
     messages.sort((a, b) => new Date(a.receivedAt) - new Date(b.receivedAt))
 
     console.log('messagesGET', messages)
