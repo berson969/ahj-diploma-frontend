@@ -1,8 +1,11 @@
 import { faker } from '@faker-js/faker'
 import RenderMessage from './renderMessage'
+import showNotification from "./notification/showNotification";
+import { requestNotificationPermission } from "./notification/NotificationPermission";
 
 // const baseUrl = 'ws://localhost:7071/ws';
-const baseUrl = 'wss:///evening-escarpment-39779-41796c71ab35.herokuapp.com/'
+// const baseUrl = 'wss:///evening-escarpment-39779-41796c71ab35.herokuapp.com/'
+const baseUrl = 'https://ahj-diploma-server-smj5.onrender.com'
 
 let userId = localStorage.getItem('userId')
 if (!userId) {
@@ -116,7 +119,7 @@ geoButton.addEventListener('click', (e) => {
 })
 
 const reconnectWebSocket = () => {
-  setTimeout(() => (ws = new WebSocket(baseUrl)), 2000)
+  setTimeout(() => (ws = new WebSocket(baseUrl)), 6000)
 }
 
 ws.addEventListener('open', () => {
@@ -148,6 +151,12 @@ ws.addEventListener('message', (e) => {
       render.renderChat(message)
     })
   } else if (data) {
+    requestNotificationPermission(data)
+      .then(permissionGranted => {
+        if (permissionGranted && data.from === userId)  {
+          showNotification(data)
+        }
+      })
     render.renderChat(data)
   } else {
     console.error('Неизвестное сообщение', data)
